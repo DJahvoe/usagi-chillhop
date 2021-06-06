@@ -83,16 +83,36 @@ body {
 	margin-left: 10px;
 }
 
-#play {
+#play,
+#btn-play {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
+	text-transform: uppercase;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+#play {
 	top: 50px;
 	left: 50px;
-	text-transform: uppercase;
+}
 
-	font-size: 24px;
+#btn-play {
+	bottom: 35%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 11;
+}
+
+#play:hover,
+#btn-play:hover {
+	opacity: 0.6;
+}
+
+#play:active {
+	transform: scale(0.98);
 }
 
 #timer {
