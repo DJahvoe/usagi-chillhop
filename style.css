@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	border: none;
+	font-family: 'Press Start 2P', cursive;
+}
+svg {
+	position: absolute;
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	background: #a5d4f3;
+	color: white;
+}
+.overlay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: #9acafa;
+	z-index: 10;
+}
+
+.overlay span {
+	margin: 10px;
+	text-transform: uppercase;
+	font-size: 65px;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	/* filter: url(#noise); */
+}
+
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 25px;
+	background: white;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	background: #9acafa;
+	cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	background: #9acafa;
+	cursor: pointer;
+}
+
+.arrow-right {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+
+	border-left: 20px solid white;
+	margin-left: 10px;
+}
+
+#play {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	text-transform: uppercase;
+
+	font-size: 24px;
+}
+
+#timer {
+	position: absolute;
+	top: 50px;
+	right: 50px;
+}
+
+#pekora,
+#pekora-offset {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 736px;
+	height: 736px;
+	background-size: cover;
+	transform: translate(-50%, -50%) scale(0.6);
+}
+
+#pekora-offset {
+	background-image: url('./pekora.jpg');
+	clip-path: polygon(0 2%, 100% 2%, 100% 4%, 0 4%);
+	animation: midAnim 10s forwards linear infinite;
+}
+
+#pekora::before,
+#pekora::after {
+	content: '';
+	position: absolute;
+	left: 1%;
+	background-image: url('./pekora.jpg');
+
+	width: 736px;
+	height: 736px;
+}
+
+#pekora::before {
+	clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+	animation: topAnim 10s forwards linear infinite;
+}
+
+#pekora::after {
+	clip-path: polygon(0 2%, 100% 2%, 100% 100%, 0 100%);
+	animation: botAnim 10s forwards linear infinite;
+}
+
+#volume-slider {
+	position: absolute;
+	left: 50%;
+	bottom: 50px;
+	transform: translateX(-50%);
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#volume-slider .volume-text {
+	margin-bottom: 15px;
+}
+
+#progress-bar {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 10px;
+	background: white;
+}
+
+#credit {
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+	font-size: 10px;
+}
+
+@keyframes topAnim {
+	0% {
+		clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+	}
+	100% {
+		clip-path: polygon(0 0, 100% 0, 100% 98%, 0 98%);
+	}
+}
+
+@keyframes midAnim {
+	0% {
+		clip-path: polygon(0 0, 100% 0, 100% 2%, 0 2%);
+	}
+	100% {
+		clip-path: polygon(0 98%, 100% 98%, 100% 100%, 0 100%);
+	}
+}
+
+@keyframes botAnim {
+	0% {
+		clip-path: polygon(0 2%, 100% 2%, 100% 100%, 0 100%);
+	}
+	100% {
+		clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+	}
+}

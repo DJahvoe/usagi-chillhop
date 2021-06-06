@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Usagi Chillhop (peko type beat)</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<svg>
+			<filter id="noise" x="0%" y="0%" width="100%" height="100%">
+				<feTurbulence
+					type="turbulence"
+					baseFrequency="0 0.01"
+					result="NOISE"
+					numOctaves="5"
+				></feTurbulence>
+				<feDisplacementMap
+					in="SourceGraphic"
+					in2="NOISE"
+					scale="3"
+					xChannelSelector="R"
+					yChannelSelector="R"
+				></feDisplacementMap>
+			</filter>
+		</svg>
+		<div class="overlay">
+			<span>Usada</span>
+			<span>Pekora</span>
+		</div>
+		<div class="container">
+			<div id="play">
+				<div class="text">Play</div>
+				<div class="arrow-right"></div>
+			</div>
+			<div id="timer">
+				00:<span id="minutes">00</span>:<span id="seconds">00</span>
+			</div>
+			<div id="pekora-offset"></div>
+			<div id="pekora"></div>
+			<div id="volume-slider">
+				<p class="volume-text">Volume</p>
+				<input
+					id="volume-slider-range"
+					type="range"
+					min="0"
+					max="100"
+					value="30"
+					class="slider"
+					id="myRange"
+				/>
+			</div>
+		</div>
+		<div id="progress-bar"></div>
+		<div id="credit">
+			<span>credit to:</span>
+			<span> project royal</span>
+		</div>
+		<audio id="pekora-audio" autoplay loop src="./usagi-chillhop.mp3"></audio>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+			integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script src="./script.js"></script>
+	</body>
+</html>
