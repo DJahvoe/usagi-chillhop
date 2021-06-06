@@ -6,10 +6,12 @@ const seconds = document.getElementById('seconds');
 const noise = document.querySelector('#noise feTurbulence');
 const overlay = document.querySelector('.overlay');
 
+window.addEventListener('load', () => {
+	pekoraAudio.play();
+	setVolume();
+});
 // GSAP
 executeAnimation();
-
-setVolume();
 
 // Set Volume everytime user slide volume-slider
 pekoraVolume.addEventListener('input', setVolume);
